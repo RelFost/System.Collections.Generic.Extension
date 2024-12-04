@@ -17,10 +17,6 @@ This library provides a set of extension methods for `Dictionary<TKey, TValue>` 
 - **UpdateOrAdd**  
   Updates an existing entry or adds a new one. Supports direct updates, actions, or custom value factories.
 
-## Installation
-
-Copy the `System.Collections.Generic.Extension.cs` file into your project. Make sure your project targets **.NET Framework 4.8.1**.
-
 ## Usage
 
 ### ContainsAllKeys / ContainsKeys
