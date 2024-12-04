@@ -63,9 +63,7 @@ namespace System.Collections.Generic
                 return value;
             }
 
-            value = callback(key);
-            dictionary.Add(key, value);
-            return value;
+            return callback(key);
         }
 
         public static void UpdateOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Action<TValue> updateAction, Func<TValue> createFactory)
