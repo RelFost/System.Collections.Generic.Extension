@@ -17,6 +17,15 @@ This library provides a set of extension methods for `Dictionary<TKey, TValue>` 
 - **UpdateOrAdd**  
   Updates an existing entry or adds a new one. Supports direct updates, actions, or custom value factories.
 
+## Installation
+
+1. Place the `Relfost.System.Collections.Generic.Extension.dll` file into your project directory.
+2. Add a reference to the DLL in your project.
+3. Import the namespace in your code:
+   ```csharp
+   using System.Collections.Generic;
+   ```
+   
 ## Usage
 
 ### ContainsAllKeys / ContainsKeys
