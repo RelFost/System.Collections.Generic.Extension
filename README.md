@@ -14,6 +14,9 @@ This library provides a set of extension methods for `Dictionary<TKey, TValue>` 
 - **GetOrAdd**  
   Retrieves the value for a key or adds a new value using either a factory function, a default value, or an explicitly provided value.
 
+- **GetOr**  
+  Retrieves the value for a key if it exists. If not, it calls the provided callback to generate a value.
+
 - **UpdateOrAdd**  
   Updates an existing entry or adds a new one. Supports direct updates, actions, or custom value factories.
 
@@ -25,7 +28,7 @@ This library provides a set of extension methods for `Dictionary<TKey, TValue>` 
    ```csharp
    using System.Collections.Generic;
    ```
-   
+
 ## Usage
 
 ### ContainsAllKeys / ContainsKeys
@@ -63,6 +66,15 @@ int defaultValue = dictionary.GetOrAdd("key2"); // Adds and returns 0
 
 // Using an explicitly provided default value
 int customDefault = dictionary.GetOrAdd("key3", 10); // Adds and returns 10
+```
+
+### GetOr
+
+```csharp
+var dictionary = new Dictionary<string, string>();
+
+// Retrieve or compute a value using a callback
+string value = dictionary.GetOr("key1", key => $"GeneratedValueFor_{key}"); // Adds and returns "GeneratedValueFor_key1"
 ```
 
 ### UpdateOrAdd

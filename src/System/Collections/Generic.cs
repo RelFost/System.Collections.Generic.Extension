@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 
@@ -53,6 +54,18 @@ namespace System.Collections.Generic
         public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)
         {
             return dictionary.GetOrAdd(key, () => defaultValue);
+        }
+
+        public static TValue GetOr<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Func<TKey, TValue> callback)
+        {
+            if (dictionary.TryGetValue(key, out var value))
+            {
+                return value;
+            }
+
+            value = callback(key);
+            dictionary.Add(key, value);
+            return value;
         }
 
         public static void UpdateOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, Action<TValue> updateAction, Func<TValue> createFactory)
